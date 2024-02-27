@@ -37,11 +37,12 @@
             </p>
           </a>
         </li>
-
+        @if(auth()->user()->role!="admin")
         <div class="card-header">
           <b>Pembayaran</b>
         </div>
-
+        @endif
+        @if(auth()->user()->role!="admin")
         <li class="nav-item">
           <a href="/kasir/transaksi" class="nav-link  {{ Request::is('admin/transaksi*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-exchange-alt"></i>
@@ -50,6 +51,7 @@
             </p>
           </a>
         </li>
+        @endif
         @if(auth()->user()->role!="pengguna")
         <li class="nav-item">
           <a href="/kasir/riwayat" class="nav-link  {{ Request::is('admin/user*') ? 'active' : '' }}">
@@ -93,7 +95,7 @@
         @endif
         @if(auth()->user()->role!="pengguna")
         <li class="nav-item">
-          <a href="/kasir/user" class="nav-link  {{ Request::is('admin/user*') ? 'active' : '' }}">
+          <a href="/admin/user" class="nav-link  {{ Request::is('admin/user*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-users"></i>
             <p>
               User
