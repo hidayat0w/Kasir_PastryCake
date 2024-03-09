@@ -166,9 +166,9 @@
                 <div class="card-body">
                     <div class="container-fluid d-flex justify-content-between">
                         <div class="col-lg-3 ps-0">
-                            <p class="mt-1 mb-1 larger-text"><b>kasir</b></p>
-                            <p class="larger-text">Jalan Raya Cendrawasih,<br> Kec. Sidoarjo,<br>Jawa Timur 61252.</p>
-                            <h5 class="mt-5 mb-2 text-muted larger-text" style="margin-bottom: 0.25rem;">Rizal</h5>
+                            <p class="mt-1 mb-1 larger-text"><b>PastryCake</b></p>
+                            <p class="larger-text">Jalan Raya Sidokepung, Buduran,<br> Kec. Sidoarjo,<br>Jawa Timur 61252.</p>
+                            <h5 class="mt-5 mb-2 text-muted larger-text" style="margin-bottom: 0.25rem;">Invoice</h5>
                             <p class="larger-text" style="margin-top: 0.25rem;">{{ $namaKasir }}</p>
                         </div>
                         <div class="col-lg-3 pe-0">
@@ -190,10 +190,10 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Nama Produk</th>
-                                        <th class="text-end">Quantity</th>
+                                        <th>Nama Kue</th>
+                                        <th class="text-end">Jumlah Kue</th>
                                         <th class="text-end">Harga</th>
-                                        <th class="text-end">Diskon</th>
+                                        <!-- <th class="text-end">Diskon</th> -->
                                         <th class="text-end">Total</th>
                                     </tr>
                                 </thead>
@@ -214,7 +214,7 @@
                                         <td>{{ $tks->produk_name }}</td>
                                         <td class="text-end">{{ $tks->qty }}</td>
                                         <td class="text-end">{{ format_rupiah($tks->produk->harga) }}</td>
-                                        <td class="text-end">{{ $tks->produk->diskon }}%</td>
+                                        <!-- <td class="text-end">{{ $tks->produk->diskon }}%</td> -->
                                         <td class="text-end">{{ format_rupiah($tks->subtotal) }}</td>
                                     </tr>
                                     @endforeach
@@ -228,10 +228,10 @@
                                 <div class="table-responsive">
                                     <table>
                                         <tbody>
-                                            <tr>
+                                            <!-- <tr>
                                                 <td>Total Diskon (%)</td>
                                                 <td class="text-end">{{ format_rupiah($totalDiskon) }}</td>
-                                            </tr>
+                                            </tr> -->
                                             <tr class="bg-dark">
                                                 <td class="text-bold-800">Total</td>
                                                 <td class="text-bold-800 text-end">Rp. {{ format_rupiah($total) }}</td>

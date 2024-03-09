@@ -14,15 +14,15 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="/vendor/admin/dist/css/adminlte.min.css">
 </head>
-<body class="hold-transition login-page">
+<body style="background-color: #004544;" class="hold-transition login-page">
 <div class="login-box">
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="{{ route('login') }}" class="h3"><b>Kasir</b>Register</a>
+      <a href="{{ route('login') }}" class="h3"><b>Pastry</b>Cake</a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Registrasi Dulu</p>
+      <p class="login-box-msg">Registrasi untuk memulai sesi</p>
 
       @if (session()->has('loginError'))
       <div class="alert alert-danger">{{ session('loginError') }}</div>
@@ -84,6 +84,14 @@
                       {{ $message }}
                   </div>
               @enderror
+        </div>
+
+        <div>
+          <select name="role" class="form-control mb-2" id="role">
+              <option disabled value="">Pilih Role</option>
+              <option value="admin">Admin</option>
+              <option value="pengguna">Kasir</option>
+          </select>
         </div>
   
 

@@ -178,6 +178,6 @@ class AdminTransaksiController extends Controller
         $transaksi->delete();
 
         Alert::success('Sukses', 'Transaksi berhasil dihapus!!');
-        return redirect('/kasir/transaksi')->with('success', 'Data berhasil dihapus!!');
+        return redirect('/kasir/transaksi')->with('Sukses', 'Data berhasil dihapus!!');
     }
 }

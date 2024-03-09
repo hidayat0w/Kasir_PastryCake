@@ -1,25 +1,16 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar bg-info sidebar-dark-primary elevation-4">
+<aside style="background-color : #004544;" class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
 
   <!-- Sidebar -->
   <div class="sidebar">
 
   </a>
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-      <!-- @if(auth()->check())     -->
-      <div class="image">
-        <img src="/vendor/admin/dist/img/resto.png" class="img-circle elevation-2" alt="User Image">
-      </div>
-      <div class="info">
-        <a href="#" class="d-block"></a>
-      </div>
-      <!-- @endif -->
-    </div>
+
 
     <a href="#" class="brand-link">
       <!--img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"!-->
-      <span class="brand-text font-weight-light"><b>Kasir Mainan</b></span>
+      <span class="brand-text font-weight-light"><b>PastryCake</b></span>
     </a>
 
 
@@ -30,21 +21,21 @@
                with font-awesome or any other icon font library -->
 
         <li class="nav-item">
-          <a href="/" class="nav-link">
+          <a href="/admin/adasboard" class="nav-link  {{ Request::is('/') ? 'active' : '' }}">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Dashboard
             </p>
           </a>
         </li>
-        @if(auth()->user()->role!="admin")
+        @if(optional(auth()->user())->role != "admin")
         <div class="card-header">
-          <b>Pembayaran</b>
+          <b class="text-white">Pembayaran</b>
         </div>
         @endif
-        @if(auth()->user()->role!="admin")
+        @if(optional(auth()->user())->role != "admin")
         <li class="nav-item">
-          <a href="/kasir/transaksi" class="nav-link  {{ Request::is('admin/transaksi*') ? 'active' : '' }}">
+          <a href="/kasir/transaksi" class="nav-link  {{ Request::is('kasir/transaksi*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-exchange-alt"></i>
             <p>
               Transaksi
@@ -52,22 +43,19 @@
           </a>
         </li>
         @endif
-        @if(auth()->user()->role!="pengguna")
+        @if(optional(auth()->user())->role != "pengguna")
         <li class="nav-item">
-          <a href="/kasir/riwayat" class="nav-link  {{ Request::is('admin/user*') ? 'active' : '' }}">
-            <i class="nav-icon fas fa-frog"></i>
+          <a href="/kasir/riwayat" class="nav-link  {{ Request::is('kasir/riwayat*') ? 'active' : '' }}">
+            <i class="nav-icon fas fa-book"></i>
             <p>
-              <p class=text-white>Riwayat</p>
+              Riwayat
             </p>
           </a>
         </li>
         @endif
        
        
-        @if(auth()->user()->role!="pengguna")
-        <div class="card-header">
-         <b>Produk Mainan</b>
-        </div>
+        @if(optional(auth()->user())->role != "pengguna")
         <li class="nav-item">
           <a href="/admin/produk" class="nav-link  {{ Request::is('admin/produk*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-table"></i>
@@ -76,11 +64,8 @@
             </p>
           </a>
         </li>
-        <div class="card-header">
-          <b></b>
-        </div>
         @endif
-        @if(auth()->user()->role!="pengguna")
+        @if(optional(auth()->user())->role != "pengguna")
         <li class="nav-item">
           <a href="/admin/kategori" class="nav-link  {{ Request::is('admin/kategori*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-list"></i>
@@ -89,11 +74,8 @@
             </p>
           </a>
         </li>
-        <div class="card-header">
-          <b>Pengguna</b>
-        </div>
         @endif
-        @if(auth()->user()->role!="pengguna")
+        @if(optional(auth()->user())->role != "pengguna")
         <li class="nav-item">
           <a href="/admin/user" class="nav-link  {{ Request::is('admin/user*') ? 'active' : '' }}">
             <i class="nav-icon fas fa-users"></i>

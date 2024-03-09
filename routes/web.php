@@ -24,7 +24,7 @@ use App\Http\Controllers\AdminTransaksiDetailController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('7login', [AdminAuthController::class, 'index']);
+Route::get('/login', [AdminAuthController::class, 'index']);
 Route::post('/login/do', [AdminAuthController::class, 'doLogin']);
 
 Route::get('/register', [AdminAuthController::class, 'register'])->name('register');
@@ -32,13 +32,28 @@ Route::post('/register-proses', [AdminAuthController::class, 'register_proses'])
 Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('login');
 
 
+// Route::get('/', function () {
+//     $data = [
+//         'content'  => 'admin.dashboard.index'
+//     ];
+//     return view('admin.layouts.wrapper', $data);
+// });
+
+// Rute untuk halaman utama
 Route::get('/', function () {
     $data = [
         'content'  => 'admin.dashboard.index'
     ];
+    // Periksa apakah pengguna telah terotentikasi
+    if (auth()->check()) {
+        // Jika pengguna sudah terotentikasi, redirect ke halaman tertentu, misalnya '/home'
+        return redirect('/');
+    } else {
+        // Jika pengguna belum terotentikasi, redirect ke halaman login
+        return redirect('/login');
+    }
     return view('admin.layouts.wrapper', $data);
 });
-
 
 
 

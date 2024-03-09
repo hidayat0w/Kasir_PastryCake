@@ -64,7 +64,7 @@ class AdminProdukController extends Controller
         }
 
         Produk::create($data);
-        Alert::success('suskses', 'Data Berhasil Ditambahkan');
+        Alert::success('Sukses', 'Data Berhasil Ditambahkan');
         return redirect('admin/produk');
     }
 
@@ -117,7 +117,7 @@ class AdminProdukController extends Controller
         }
 
         $produk->update($data);
-        Alert::success('suskses', 'Data Berhasil DiEdit');
+        Alert::success('Sukses', 'Data Berhasil DiEdit');
         return redirect('admin/produk');
     }
 
@@ -133,7 +133,7 @@ class AdminProdukController extends Controller
             unlink($produk->gambar);
         }
         $produk->delete();
-        Alert::success('suskses', 'Data Berhasil DiHapus ');
+        Alert::success('Sukses', 'Data Berhasil DiHapus ');
         return redirect()->back();
     }
 }

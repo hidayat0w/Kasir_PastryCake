@@ -13,23 +13,23 @@
 
         <table class="table">
           <tr>
-            <th>NO</th>
-            <th>Nama Mainan</th>
-            <th>gambar Mainan</th>
-            <th>Stok Mainan</th>
-            <th>Harga Mainan</th>
-            <th>Kategori Mainan</th>
-            <th>Action</th>
+            <th>No</th>
+            <th>Foto Kue</th>
+            <th>Nama Kue</th>
+            <th>Stok Kue</th>
+            <th>Harga Kue</th>
+            <th>Kategori Kue</th>
+            <th>Aksi</th>
           </tr>
 
           @foreach($produk as $item)
 
           <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $item->name }}</td>
             <td>
               <img src="{{ asset($item->gambar) }}" alt="" style="max-width: 100px; max-height: 100px;">
             </td>
+            <td>{{ $item->name }}</td>
             <td>{{ $item->stok }}</td> <!-- Tampilkan nilai stok -->
             <td>{{ $item->harga }}</td> <!-- Tampilkan nilai harga -->
             @if($item->kategori)

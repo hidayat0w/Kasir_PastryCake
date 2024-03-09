@@ -52,7 +52,7 @@ class AdminUserController extends Controller
         $data['password'] = Hash::make($data['password']);
 
         User::create($data);
-        Alert::success('Success Title', 'Data telah ditambahkan!!');
+        Alert::success('Sukses', 'Data telah ditambahkan!!');
         return redirect('/admin/user')->with('success', 'Data telah ditambahkan!!');
     }
 
@@ -100,7 +100,7 @@ class AdminUserController extends Controller
         }
 
         $user->update($data);
-        Alert::success('Success Title', 'Data telah diedit lo!!');
+        Alert::success('Sukses', 'Data telah diedit lo!!');
         return redirect('/admin/user')->with('success', 'Data telah diedit!!');
     }
 
@@ -112,7 +112,7 @@ class AdminUserController extends Controller
         //
         $user = User::find($id);
         $user->delete();
-        Alert::success('Success Title', 'Data telah dihapus!!');
+        Alert::success('Sukses', 'Data telah dihapus!!');
         return redirect('/admin/user')->with('success', 'Data telah dihapus!!');
     }
 }

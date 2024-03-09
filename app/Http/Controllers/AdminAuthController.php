@@ -57,6 +57,16 @@ class AdminAuthController extends Controller
         return view('dashboard', compact('totalUsers', 'totalProduk', 'totalPenjualan', 'totalKategori'));
     }
 
+    public function adashboard()
+    {
+        $totalUsers = User::count();
+        $totalProduk = Produk::count();
+        $totalKategori = kategori::count();
+
+        $totalPenjualan = Transaksi::sum('total');
+        return view('adashboard', compact('totalUsers', 'totalProduk', 'totalPenjualan', 'totalKategori'));
+    }
+
     public function register()
     {
         return view('admin.auth.register');
@@ -68,11 +78,13 @@ class AdminAuthController extends Controller
             'nama' => 'required',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
+            'role'     => 'required|in:admin,pengguna',
         ]);
 
         $data['name'] = $request->nama;
         $data['email'] = $request->email;
         $data['password'] = Hash::make($request->password);
+        $data['role'] = $request->role;
 
         User::create($data);
 
@@ -81,10 +93,15 @@ class AdminAuthController extends Controller
             'password' =>$request->password
         ];
 
-        if(Auth::attempt($data)) {
-            return redirect()->route('admin.dashboard');
+        if(Auth::attempt($login)) {
+            if (Auth::user()->role == 'admin') {
+                return redirect('admin/kategori');
+            } elseif (Auth::user()->role == 'pengguna') {
+                return redirect('kasir/transaksi');
+            }
         } else {
-            return redirect()->route('login')->with('failed', 'Email atau Password Salah');
+            // Jika login gagal, redirect ke halaman login dengan pesan error
+            return back()->with('loginError', 'Email atau password salah');
         }
     }
     public function showLoginForm()

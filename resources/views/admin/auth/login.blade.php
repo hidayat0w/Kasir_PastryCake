@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>PastryCake Login</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -16,12 +16,12 @@
     <link rel="stylesheet" href="vendor/admin/dist/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition login-page">
+<body style="background-color: #004544;" class="hold-transition login-page">
     <div class="login-box">
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="../../index2.html" class="h1"><b>Kasir</b>Login</a>
+                <a href="../../index2.html" class="h1"><b>Pastry</b>Cake</a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Masuk untuk memulai sesi</p>
@@ -62,7 +62,7 @@
                 </form>
                 <br>
                 <p class="mb-0">
-                    <a href="{{ route('register') }}" class="text-center btn btn-primary btn-block">Register</a>
+                    <a href="{{ route('register') }}" class="text-center btn btn-primary btn-block">Registrasi</a>
                 </p>
 
 

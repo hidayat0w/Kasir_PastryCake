@@ -47,7 +47,7 @@ class AdminKategoriController extends Controller
 
         ]);
         kategori::create($data);
-        Alert::success('suskses','Data Berhasil Ditambahkan');
+        Alert::success('Sukses','Data Berhasil Ditambahkan');
         return redirect('admin/kategori');
     }
 
@@ -85,7 +85,7 @@ class AdminKategoriController extends Controller
 
         ]);
         $kategori->update($data);
-        Alert::success('suskses','Data Berhasil DiEdit');
+        Alert::success('Sukses','Data Berhasil DiEdit');
         return redirect('admin/kategori');
     }
 
@@ -97,7 +97,7 @@ class AdminKategoriController extends Controller
         //
         $kategori= kategori::find($id);
         $kategori->delete();
-        Alert::success('suskses','Data Berhasil DiHapus ');
+        Alert::success('Sukses','Data Berhasil DiHapus ');
         return redirect()->back();
 
     }
